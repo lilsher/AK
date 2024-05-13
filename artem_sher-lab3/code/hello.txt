@@ -1,0 +1,26 @@
+.code:
+
+loop:
+    PUSH str
+    ADD index
+    LOAD_AC
+
+    OUTPUT
+
+    LOAD index
+    SUB str
+    JZ end
+
+    LOAD index
+    INC
+    SAVE index
+    JUMP loop
+
+end:
+    HALT
+
+
+
+.data:
+    str STRING Hello, world!
+    index NUMBER 1

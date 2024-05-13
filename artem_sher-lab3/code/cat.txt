@@ -1,0 +1,25 @@
+.code:
+
+wait_loop:          ; wait for interruption
+    LOAD inp
+    CMP 9999
+    JZ wait_loop
+
+    LOAD inp
+    JZ end
+    OUTPUT
+    PUSH 9999
+    SAVE inp
+    JUMP wait_loop
+
+end:
+    HALT
+
+interrupt0:
+    INPUT
+    SAVE inp
+    RET
+
+.data:
+    int0 VECTOR interrupt0
+    inp NUMBER 9999

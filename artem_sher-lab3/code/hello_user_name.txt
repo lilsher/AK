@@ -1,0 +1,68 @@
+.code:
+
+loop:
+
+init_name_addr:
+    PUSH name
+    SAVE addr
+
+wait_loop:          ; wait for interruption
+    LOAD inp
+    CMP 9999
+    JZ wait_loop
+
+read_symbol:
+    LOAD inp
+    JZ print_hello
+    SET_DA addr
+    SAVE_AC
+    LOAD addr
+    INC
+    SAVE addr
+    PUSH 9999
+    SAVE inp
+    JUMP wait_loop
+
+print_hello:
+    PUSH str
+    ADD index
+    LOAD_AC
+    OUTPUT
+    LOAD index
+    SUB str
+    JZ init_name_print
+    LOAD index
+    INC
+    SAVE index
+    JUMP print_hello
+
+init_name_print:
+    PUSH name
+    SAVE addr
+
+print_name:
+    SET_DA addr
+    LOAD_AC
+    JZ end
+    OUTPUT
+    LOAD addr
+    INC
+    SAVE addr
+    JUMP print_name
+
+end:
+    HALT
+
+interrupt0:
+    INPUT
+    SAVE inp
+    RET
+
+
+.data:
+    int0 VECTOR interrupt0
+    str STRING Hello,
+    name BUFFER 50
+    index NUMBER 1
+    addr NUMBER 0
+    inp NUMBER 9999

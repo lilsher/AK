@@ -1,0 +1,34 @@
+.code:
+
+loop:
+    LOAD index
+    CMP 1000
+    JZ end
+    MOD div1
+    JZ add
+    LOAD index
+    MOD div2
+    JZ add
+    JUMP after_add
+
+add:
+    LOAD sum
+    ADD index
+    SAVE sum
+
+after_add:
+    LOAD index
+    INC
+    SAVE index
+    JUMP loop
+
+end:
+    LOAD sum
+    OUTPUT
+    HALT
+
+.data:
+    sum NUMBER 0
+    index NUMBER 1
+    div1 NUMBER 3
+    div2 NUMBER 5

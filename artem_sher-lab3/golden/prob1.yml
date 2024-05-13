@@ -1,0 +1,319 @@
+in_source: |-
+  .code:
+
+  loop:
+      LOAD index
+      CMP 1000
+      JZ end
+      MOD div1
+      JZ add
+      LOAD index
+      MOD div2
+      JZ add
+      JUMP after_add
+
+  add:
+      LOAD sum
+      ADD index
+      SAVE sum
+
+  after_add:
+      LOAD index
+      INC
+      SAVE index
+      JUMP loop
+
+  end:
+      LOAD sum
+      OUTPUT
+      HALT
+
+  .data:
+      sum NUMBER 0
+      index NUMBER 1
+      div1 NUMBER 3
+      div2 NUMBER 5
+in_stdin: |
+out_log: |
+  INFO     root:simulation.py:83 Start simulation
+  DEBUG    root:simulation.py:29 Tick:    0 NOP     SC:   0 PC:   0 AC:    0 DA:   0 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    0 LOAD    SC:   1 PC:   1 AC:    0 DA:   0 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    1 LOAD    SC:   2 PC:   1 AC:    0 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    2 LOAD    SC:   0 PC:   1 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    3 CMP     SC:   1 PC:   2 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    4 CMP     SC:   0 PC:   2 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    5 JZ      SC:   1 PC:   3 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    6 JZ      SC:   0 PC:   3 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    7 MOD     SC:   1 PC:   4 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    8 MOD     SC:   2 PC:   4 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:    9 MOD     SC:   0 PC:   4 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   10 JZ      SC:   1 PC:   5 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   11 JZ      SC:   0 PC:   5 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   12 LOAD    SC:   1 PC:   6 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   13 LOAD    SC:   2 PC:   6 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   14 LOAD    SC:   0 PC:   6 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   15 MOD     SC:   1 PC:   7 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   16 MOD     SC:   2 PC:   7 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   17 MOD     SC:   0 PC:   7 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   18 JZ      SC:   1 PC:   8 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   19 JZ      SC:   0 PC:   8 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   20 JUMP    SC:   1 PC:   9 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   21 JUMP    SC:   0 PC:  12 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   22 LOAD    SC:   1 PC:  13 AC:    1 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   23 LOAD    SC:   2 PC:  13 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   24 LOAD    SC:   0 PC:  13 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   25 INC     SC:   1 PC:  14 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   26 INC     SC:   0 PC:  14 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   27 SAVE    SC:   1 PC:  15 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   28 SAVE    SC:   2 PC:  15 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   29 SAVE    SC:   0 PC:  15 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   30 JUMP    SC:   1 PC:  16 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   31 JUMP    SC:   0 PC:   0 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   32 LOAD    SC:   1 PC:   1 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   33 LOAD    SC:   2 PC:   1 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   34 LOAD    SC:   0 PC:   1 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   35 CMP     SC:   1 PC:   2 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   36 CMP     SC:   0 PC:   2 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   37 JZ      SC:   1 PC:   3 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   38 JZ      SC:   0 PC:   3 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   39 MOD     SC:   1 PC:   4 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   40 MOD     SC:   2 PC:   4 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   41 MOD     SC:   0 PC:   4 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   42 JZ      SC:   1 PC:   5 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   43 JZ      SC:   0 PC:   5 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   44 LOAD    SC:   1 PC:   6 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   45 LOAD    SC:   2 PC:   6 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   46 LOAD    SC:   0 PC:   6 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   47 MOD     SC:   1 PC:   7 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   48 MOD     SC:   2 PC:   7 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   49 MOD     SC:   0 PC:   7 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   50 JZ      SC:   1 PC:   8 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   51 JZ      SC:   0 PC:   8 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   52 JUMP    SC:   1 PC:   9 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   53 JUMP    SC:   0 PC:  12 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   54 LOAD    SC:   1 PC:  13 AC:    2 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   55 LOAD    SC:   2 PC:  13 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   56 LOAD    SC:   0 PC:  13 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   57 INC     SC:   1 PC:  14 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   58 INC     SC:   0 PC:  14 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   59 SAVE    SC:   1 PC:  15 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   60 SAVE    SC:   2 PC:  15 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   61 SAVE    SC:   0 PC:  15 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   62 JUMP    SC:   1 PC:  16 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   63 JUMP    SC:   0 PC:   0 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   64 LOAD    SC:   1 PC:   1 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   65 LOAD    SC:   2 PC:   1 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   66 LOAD    SC:   0 PC:   1 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   67 CMP     SC:   1 PC:   2 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   68 CMP     SC:   0 PC:   2 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   69 JZ      SC:   1 PC:   3 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   70 JZ      SC:   0 PC:   3 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   71 MOD     SC:   1 PC:   4 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   72 MOD     SC:   2 PC:   4 AC:    3 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   73 MOD     SC:   0 PC:   4 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   74 JZ      SC:   1 PC:   5 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   75 JZ      SC:   0 PC:   9 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   76 LOAD    SC:   1 PC:  10 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   77 LOAD    SC:   2 PC:  10 AC:    0 DA:  19 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   78 LOAD    SC:   0 PC:  10 AC:    0 DA:  19 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   79 ADD     SC:   1 PC:  11 AC:    0 DA:  19 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   80 ADD     SC:   2 PC:  11 AC:    0 DA:  20 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   81 ADD     SC:   0 PC:  11 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   82 SAVE    SC:   1 PC:  12 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   83 SAVE    SC:   2 PC:  12 AC:    3 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   84 SAVE    SC:   0 PC:  12 AC:    3 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   85 LOAD    SC:   1 PC:  13 AC:    3 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   86 LOAD    SC:   2 PC:  13 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   87 LOAD    SC:   0 PC:  13 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   88 INC     SC:   1 PC:  14 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   89 INC     SC:   0 PC:  14 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   90 SAVE    SC:   1 PC:  15 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   91 SAVE    SC:   2 PC:  15 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   92 SAVE    SC:   0 PC:  15 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   93 JUMP    SC:   1 PC:  16 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   94 JUMP    SC:   0 PC:   0 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   95 LOAD    SC:   1 PC:   1 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   96 LOAD    SC:   2 PC:   1 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   97 LOAD    SC:   0 PC:   1 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   98 CMP     SC:   1 PC:   2 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:   99 CMP     SC:   0 PC:   2 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  100 JZ      SC:   1 PC:   3 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  101 JZ      SC:   0 PC:   3 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  102 MOD     SC:   1 PC:   4 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  103 MOD     SC:   2 PC:   4 AC:    4 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  104 MOD     SC:   0 PC:   4 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  105 JZ      SC:   1 PC:   5 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  106 JZ      SC:   0 PC:   5 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  107 LOAD    SC:   1 PC:   6 AC:    1 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  108 LOAD    SC:   2 PC:   6 AC:    1 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  109 LOAD    SC:   0 PC:   6 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  110 MOD     SC:   1 PC:   7 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  111 MOD     SC:   2 PC:   7 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  112 MOD     SC:   0 PC:   7 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  113 JZ      SC:   1 PC:   8 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  114 JZ      SC:   0 PC:   8 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  115 JUMP    SC:   1 PC:   9 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  116 JUMP    SC:   0 PC:  12 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  117 LOAD    SC:   1 PC:  13 AC:    4 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  118 LOAD    SC:   2 PC:  13 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  119 LOAD    SC:   0 PC:  13 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  120 INC     SC:   1 PC:  14 AC:    4 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  121 INC     SC:   0 PC:  14 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  122 SAVE    SC:   1 PC:  15 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  123 SAVE    SC:   2 PC:  15 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  124 SAVE    SC:   0 PC:  15 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  125 JUMP    SC:   1 PC:  16 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  126 JUMP    SC:   0 PC:   0 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  127 LOAD    SC:   1 PC:   1 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  128 LOAD    SC:   2 PC:   1 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  129 LOAD    SC:   0 PC:   1 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  130 CMP     SC:   1 PC:   2 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  131 CMP     SC:   0 PC:   2 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  132 JZ      SC:   1 PC:   3 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  133 JZ      SC:   0 PC:   3 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  134 MOD     SC:   1 PC:   4 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  135 MOD     SC:   2 PC:   4 AC:    5 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  136 MOD     SC:   0 PC:   4 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  137 JZ      SC:   1 PC:   5 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  138 JZ      SC:   0 PC:   5 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  139 LOAD    SC:   1 PC:   6 AC:    2 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  140 LOAD    SC:   2 PC:   6 AC:    2 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  141 LOAD    SC:   0 PC:   6 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  142 MOD     SC:   1 PC:   7 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  143 MOD     SC:   2 PC:   7 AC:    5 DA:  22 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  144 MOD     SC:   0 PC:   7 AC:    0 DA:  22 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  145 JZ      SC:   1 PC:   8 AC:    0 DA:  22 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  146 JZ      SC:   0 PC:   9 AC:    0 DA:  22 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  147 LOAD    SC:   1 PC:  10 AC:    0 DA:  22 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  148 LOAD    SC:   2 PC:  10 AC:    0 DA:  19 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  149 LOAD    SC:   0 PC:  10 AC:    3 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  150 ADD     SC:   1 PC:  11 AC:    3 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  151 ADD     SC:   2 PC:  11 AC:    3 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  152 ADD     SC:   0 PC:  11 AC:    8 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  153 SAVE    SC:   1 PC:  12 AC:    8 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  154 SAVE    SC:   2 PC:  12 AC:    8 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  155 SAVE    SC:   0 PC:  12 AC:    8 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  156 LOAD    SC:   1 PC:  13 AC:    8 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  157 LOAD    SC:   2 PC:  13 AC:    8 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  158 LOAD    SC:   0 PC:  13 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  159 INC     SC:   1 PC:  14 AC:    5 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  160 INC     SC:   0 PC:  14 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  161 SAVE    SC:   1 PC:  15 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  162 SAVE    SC:   2 PC:  15 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  163 SAVE    SC:   0 PC:  15 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  164 JUMP    SC:   1 PC:  16 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  165 JUMP    SC:   0 PC:   0 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  166 LOAD    SC:   1 PC:   1 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  167 LOAD    SC:   2 PC:   1 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  168 LOAD    SC:   0 PC:   1 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  169 CMP     SC:   1 PC:   2 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  170 CMP     SC:   0 PC:   2 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  171 JZ      SC:   1 PC:   3 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  172 JZ      SC:   0 PC:   3 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  173 MOD     SC:   1 PC:   4 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  174 MOD     SC:   2 PC:   4 AC:    6 DA:  21 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  175 MOD     SC:   0 PC:   4 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  176 JZ      SC:   1 PC:   5 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  177 JZ      SC:   0 PC:   9 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  178 LOAD    SC:   1 PC:  10 AC:    0 DA:  21 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  179 LOAD    SC:   2 PC:  10 AC:    0 DA:  19 ZERO: 1 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  180 LOAD    SC:   0 PC:  10 AC:    8 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  181 ADD     SC:   1 PC:  11 AC:    8 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  182 ADD     SC:   2 PC:  11 AC:    8 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  183 ADD     SC:   0 PC:  11 AC:   14 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  184 SAVE    SC:   1 PC:  12 AC:   14 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  185 SAVE    SC:   2 PC:  12 AC:   14 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  186 SAVE    SC:   0 PC:  12 AC:   14 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  187 LOAD    SC:   1 PC:  13 AC:   14 DA:  19 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  188 LOAD    SC:   2 PC:  13 AC:   14 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  189 LOAD    SC:   0 PC:  13 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  190 INC     SC:   1 PC:  14 AC:    6 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  191 INC     SC:   0 PC:  14 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  192 SAVE    SC:   1 PC:  15 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  193 SAVE    SC:   2 PC:  15 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  194 SAVE    SC:   0 PC:  15 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  195 JUMP    SC:   1 PC:  16 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  196 JUMP    SC:   0 PC:   0 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  197 LOAD    SC:   1 PC:   1 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  198 LOAD    SC:   2 PC:   1 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  DEBUG    root:simulation.py:42 Tick:  199 LOAD    SC:   0 PC:   1 AC:    7 DA:  20 ZERO: 0 INTERRUPTED: 0
+  WARNING  root:simulation.py:44 Debug limit exceeded!
+  INFO     root:datapath.py:70 output: 233168 << 233168
+  INFO     root:simulation.py:60 output_buffer: 233168
+  INFO     root:simulation.py:90 End simulation
+out_stdout: |
+  LoC: 34 code_instr: 24
+  ============================================================
+  233168
+  Instructions: 12926 Ticks: 32579
+out_code:
+- 
+- index: 0
+  opcode: LOAD
+  value: 20
+- index: 1
+  opcode: CMP
+  value: 1000
+- index: 2
+  opcode: JZ
+  value: 16
+- index: 3
+  opcode: MOD
+  value: 21
+- index: 4
+  opcode: JZ
+  value: 9
+- index: 5
+  opcode: LOAD
+  value: 20
+- index: 6
+  opcode: MOD
+  value: 22
+- index: 7
+  opcode: JZ
+  value: 9
+- index: 8
+  opcode: JUMP
+  value: 12
+- index: 9
+  opcode: LOAD
+  value: 19
+- index: 10
+  opcode: ADD
+  value: 20
+- index: 11
+  opcode: SAVE
+  value: 19
+- index: 12
+  opcode: LOAD
+  value: 20
+- index: 13
+  opcode: INC
+  value:
+- index: 14
+  opcode: SAVE
+  value: 20
+- index: 15
+  opcode: JUMP
+  value: 0
+- index: 16
+  opcode: LOAD
+  value: 19
+- index: 17
+  opcode: OUTPUT
+  value:
+- index: 18
+  opcode: HALT
+  value:
+- index: 19
+  opcode: NUMBER
+  value: 0
+- index: 20
+  opcode: NUMBER
+  value: 1
+- index: 21
+  opcode: NUMBER
+  value: 3
+- index: 22
+  opcode: NUMBER
+  value: 5
